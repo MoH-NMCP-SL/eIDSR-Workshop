@@ -124,6 +124,80 @@ main{max-width:1180px;margin:0 auto;padding:22px 22px 60px}
 .regmsg{font-size:14px;font-weight:600}
 .regmsg.ok{color:#0b7a44} .regmsg.err{color:#c0392b} .regmsg.wait{color:var(--muted)} .regmsg.held{color:#8a6a00}
 
+/* ------------------------------ presentation */
+.pres-bar{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.pres-bar h2{margin:0;font-size:21px}
+.pres-full{background:#fff;border:1px solid var(--line);color:var(--blue);font-weight:700;border-radius:8px;padding:9px 16px;min-height:42px}
+.pres-full:hover{background:var(--blue-lt)}
+.stage-wrap:focus{outline:none}
+.stage-wrap{background:#1f2f3d;border-radius:14px;padding:18px;box-shadow:0 8px 28px rgba(20,50,80,.18);
+  width:min(100%,calc((100vh - 190px) * 16 / 9 + 36px));margin:0 auto}
+.stage{position:relative;aspect-ratio:16/9;width:100%;container-type:inline-size;border-radius:8px;overflow:hidden;background:#fff}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .35s ease;
+  padding:5.2cqw 6cqw;font-size:1.75cqw;line-height:1.45;color:var(--text)}
+.slide.on{opacity:1;visibility:visible}
+.sl-title{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dk) 100%);color:#fff;justify-content:center;align-items:flex-start}
+.sl-title h2{color:#fff;font-size:3.9cqw;line-height:1.2;margin:0;max-width:80%}
+.sl-badge{background:var(--gold);color:#4a3600;font-weight:800;font-size:1.2cqw;letter-spacing:.14em;text-transform:uppercase;
+  padding:.5cqw 1.4cqw;border-radius:99px;margin-bottom:2.2cqw}
+.sl-rule{width:9cqw;height:.55cqw;background:var(--gold);border-radius:99px;margin:2.6cqw 0 2.2cqw}
+.sl-org{margin:0;font-size:2cqw;color:rgba(255,255,255,.92);line-height:1.5}
+.sl-date{margin:1.4cqw 0 0;font-size:1.7cqw;color:var(--gold);font-weight:700}
+.sl-end{align-items:center;text-align:center}
+.sl-end h2{font-size:6cqw}
+.sl-end .sl-org{text-align:center}
+.sl-body{--a:var(--c1);background:#fff}
+.sl-body.c2{--a:var(--c2)} .sl-body.c3{--a:var(--c3)} .sl-body.c4{--a:var(--c4)} .sl-body.c5{--a:var(--c5)}
+.sl-head{display:flex;align-items:center;gap:2cqw;margin-bottom:2.6cqw}
+.sl-num{flex:0 0 auto;width:5.2cqw;height:5.2cqw;border-radius:1.2cqw;background:var(--a);color:#fff;font-weight:800;
+  font-size:1.9cqw;display:grid;place-items:center}
+.sl-head h2{margin:0;font-size:3cqw;line-height:1.2;color:var(--ink)}
+.sl-content{flex:1;display:flex;flex-direction:column;gap:2cqw;min-height:0}
+.sl-groups{display:grid;gap:2.2cqw}
+.sl-groups.g2{grid-template-columns:1fr 1fr}
+.sl-grp{background:#f7fafc;border:.12cqw solid var(--line);border-radius:1.4cqw;padding:2cqw 2.3cqw}
+.sl-lead{margin:0 0 1.2cqw;font-weight:700;color:var(--ink);font-size:1.8cqw}
+.sl-pts{margin:0;padding:0;list-style:none}
+.sl-pts li{position:relative;padding:.55cqw 0 .55cqw 2.6cqw;font-size:1.75cqw}
+.sl-pts li:before{content:"";position:absolute;left:.3cqw;top:1.35cqw;width:1.05cqw;height:1.05cqw;border-radius:50%;background:var(--a)}
+.sl-take{margin-top:auto;background:var(--a);color:#fff;font-weight:700;font-size:1.85cqw;border-radius:1.4cqw;padding:1.7cqw 2.3cqw}
+.sl-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqw}
+.sl-card{--a:var(--c1);background:#f7fafc;border:.12cqw solid var(--line);border-radius:1.4cqw;padding:1.6cqw 1.8cqw;display:flex;gap:1.3cqw}
+.sl-card.c2{--a:var(--c2)} .sl-card.c3{--a:var(--c3)} .sl-card.c4{--a:var(--c4)} .sl-card.c5{--a:var(--c5)}
+.sl-card b{flex:0 0 auto;width:3.4cqw;height:3.4cqw;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-size:1.6cqw}
+.sl-card p{margin:0;font-size:1.55cqw;line-height:1.45}
+.sl-cards .sl-card:nth-child(4),.sl-cards .sl-card:nth-child(5){grid-column:span 1}
+.sl-outline{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.3cqw 2.4cqw}
+.sl-go{width:100%;display:flex;align-items:center;gap:1.6cqw;text-align:left;background:#f7fafc;border:.12cqw solid var(--line);
+  border-radius:1.2cqw;padding:1.3cqw 1.6cqw;font-size:1.75cqw;color:var(--ink);font-weight:600}
+.sl-go span{flex:0 0 auto;color:var(--blue);font-weight:800}
+.sl-go:hover{background:var(--blue-lt)}
+.sl-sigs{display:grid;gap:1.1cqw}
+.sl-sig{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:1.2cqw;background:#fff;border:.12cqw solid var(--line);
+  border-radius:1.1cqw;padding:1cqw 1.4cqw;font-size:1.6cqw}
+.sl-if{font-weight:600;color:var(--ink)}
+.sl-arrow{color:var(--a);font-weight:800;font-size:2cqw}
+.sl-then{background:var(--a);color:#fff;font-weight:700;border-radius:99px;padding:.4cqw 1.3cqw;white-space:nowrap}
+.pres-progress{height:5px;background:rgba(255,255,255,.14);border-radius:99px;margin:14px 0 0;overflow:hidden}
+.pres-progress i{display:block;height:100%;background:var(--gold);transition:width .3s ease}
+.pres-nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.pnav{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:8px;font-weight:700;padding:10px 18px;min-height:44px}
+.pnav:hover{background:rgba(255,255,255,.22)}
+.pnav:disabled{opacity:.35;cursor:default}
+.pcount{color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+.thumbs{margin:16px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.thumb{width:100%;height:100%;display:flex;gap:9px;align-items:flex-start;text-align:left;background:#fff;border:1px solid var(--line);
+  border-radius:9px;padding:10px 11px;font-size:12.5px;color:var(--text);line-height:1.35}
+.thumb span{flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:var(--blue-lt);color:var(--blue);font-weight:800;
+  font-size:11.5px;display:grid;place-items:center}
+.thumb:hover{border-color:var(--blue)}
+.thumb[aria-current="true"]{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.thumb[aria-current="true"] span{background:var(--gold);color:#4a3600}
+.pres-hint{color:var(--muted);font-size:12.5px;margin:10px 0 0}
+.stage-wrap:fullscreen{display:flex;flex-direction:column;justify-content:center;border-radius:0;padding:2vh 3vw;background:#101a23}
+.stage-wrap:fullscreen .stage{width:min(100%,calc((100vh - 110px) * 16 / 9));margin:0 auto}
+.stage-wrap:fullscreen .pres-progress,.stage-wrap:fullscreen .pres-nav{width:min(100%,calc((100vh - 110px) * 16 / 9));margin-left:auto;margin-right:auto}
+
 @media (max-width:1100px){ .regrow{grid-template-columns:1fr 1fr} }
 @media (max-width:860px){ .two{grid-template-columns:1fr} }
 @media (max-width:640px){
@@ -141,10 +215,18 @@ main{max-width:1180px;margin:0 auto;padding:22px 22px 60px}
   .sesstop{flex-direction:column;gap:4px}
   .regrow{grid-template-columns:1fr}
   .signin{width:100%}
+  .stage-wrap{padding:10px;border-radius:10px}
+  .pnav{padding:9px 12px;font-size:13.5px}
+  .thumbs{grid-template-columns:1fr 1fr}
 }
 @media print{
   nav.tabs{display:none}
   .reg{display:none}
+  .pres-bar,.pres-nav,.pres-progress,.thumbs,.pres-hint{display:none}
+  .stage-wrap{background:none;padding:0;box-shadow:none}
+  .stage{aspect-ratio:auto;overflow:visible;background:none}
+  .slide{position:relative;opacity:1;visibility:visible;aspect-ratio:16/9;margin-bottom:12px;border:1px solid #ccd;
+    border-radius:6px;overflow:hidden;break-inside:avoid;page-break-inside:avoid}
   .panel[hidden]{display:block !important}
   .printhead{display:block;font-size:20px;margin:24px 0 10px;page-break-before:always}
   .panel:first-of-type .printhead{page-break-before:auto}
@@ -161,7 +243,7 @@ main{max-width:1180px;margin:0 auto;padding:22px 22px 60px}
   <div class="stats"><div><b>5</b>days</div><div><b>38</b>sessions</div><div><b>08:30</b>daily start</div>
     <div><b>5</b>key indicator groups</div></div>
 </div></header>
-<nav class="tabs" aria-label="Agenda sections"><div class="tabs-in" role="tablist"><button type="button" role="tab" class="tab " id="tab-overview" aria-controls="overview" aria-selected="true" tabindex="0">Overview</button><button type="button" role="tab" class="tab c1" id="tab-day1" aria-controls="day1" aria-selected="false" tabindex="-1">Day 1</button><button type="button" role="tab" class="tab c2" id="tab-day2" aria-controls="day2" aria-selected="false" tabindex="-1">Day 2</button><button type="button" role="tab" class="tab c3" id="tab-day3" aria-controls="day3" aria-selected="false" tabindex="-1">Day 3</button><button type="button" role="tab" class="tab c4" id="tab-day4" aria-controls="day4" aria-selected="false" tabindex="-1">Day 4</button><button type="button" role="tab" class="tab c5" id="tab-day5" aria-controls="day5" aria-selected="false" tabindex="-1">Day 5</button><button type="button" role="tab" class="tab " id="tab-outputs" aria-controls="outputs" aria-selected="false" tabindex="-1">Outputs and logistics</button></div></nav>
+<nav class="tabs" aria-label="Agenda sections"><div class="tabs-in" role="tablist"><button type="button" role="tab" class="tab " id="tab-overview" aria-controls="overview" aria-selected="true" tabindex="0">Overview</button><button type="button" role="tab" class="tab c1" id="tab-day1" aria-controls="day1" aria-selected="false" tabindex="-1">Day 1</button><button type="button" role="tab" class="tab c2" id="tab-day2" aria-controls="day2" aria-selected="false" tabindex="-1">Day 2</button><button type="button" role="tab" class="tab c3" id="tab-day3" aria-controls="day3" aria-selected="false" tabindex="-1">Day 3</button><button type="button" role="tab" class="tab c4" id="tab-day4" aria-controls="day4" aria-selected="false" tabindex="-1">Day 4</button><button type="button" role="tab" class="tab c5" id="tab-day5" aria-controls="day5" aria-selected="false" tabindex="-1">Day 5</button><button type="button" role="tab" class="tab " id="tab-outputs" aria-controls="outputs" aria-selected="false" tabindex="-1">Outputs and logistics</button><button type="button" role="tab" class="tab " id="tab-presentation" aria-controls="presentation" aria-selected="false" tabindex="-1">Presentation</button></div></nav>
 <main><div class="panel" role="tabpanel" id="overview" aria-labelledby="tab-overview"><h2 class="printhead">Overview</h2><section class="card lead"><h2>Background</h2><p>Effective malaria control depends on the timely, accurate linkage of surveillance data (suspected fever, confirmed malaria and treatment of confirmed malaria cases) with commodity consumption data (RDTs used and ACTs dispensed), and visibility of stock levels at facility and district level. This workshop brings together surveillance, case management, and supply-chain staff to align these indicators, build minimum/maximum stock-level and reorder logic into routine reporting, and configure epidemic threshold alerts within eIDSR.</p></section>
 <section class="card"><h2>Overall objectives</h2><ol class="numlist"><li>Strengthen the linkage between suspected fever cases tested and RDTs consumed, and between confirmed malaria cases and ACTs dispensed, within routine facility and district reporting.</li><li>Build participant capacity to compute Average Monthly Consumption (AMC), Minimum Stock Level, Maximum Stock Level, Reorder Level and Safety Stock for RDTs and ACTs.</li><li>Configure and/or reinforce use of the eIDSR platform to capture, validate, and visualize malaria commodity and case-based indicators in real time.</li><li>Enable automated/semi-automated stock alerts within eIDSR to trigger timely replenishment and mitigate stockouts.</li><li>Build capacity to define, set, and interpret malaria epidemic thresholds (alert and epidemic/action thresholds) using historical facility/district data.</li><li>Produce facility- and district-level action plans, including SOPs for threshold breaches and stock alerts.</li></ol></section>
 <div class="two">
@@ -236,13 +318,13 @@ main{max-width:1180px;margin:0 auto;padding:22px 22px 60px}
 <li class="sess"><div class="time"><b>15:00</b><span>15:45</span></div><div class="sesscard c5"><div class="sesstop"><h4>Developing SOPs and Action Plans</h4><em>45 min</em></div><p>Groups draft response SOPs for (a) stock alerts and (b) epidemic threshold breaches, plus a facility/district roll-out plan</p></div></li>
 <li class="sess"><div class="time"><b>15:45</b><span>16:15</span></div><div class="sesscard c5"><div class="sesstop"><h4>Presentation of Action Plans</h4><em>30 min</em></div><p>Each group presents; facilitator and peer feedback</p></div></li>
 <li class="sess"><div class="time"><b>16:15</b><span>16:45</span></div><div class="sesscard c5"><div class="sesstop"><h4>Workshop Evaluation and Closing</h4><em>30 min</em></div><p>Pre/post knowledge check, evaluation forms, certificates, closing remarks</p></div></li>
-</ol></div><div class="panel" role="tabpanel" id="outputs" aria-labelledby="tab-outputs" hidden><h2 class="printhead">Outputs and logistics</h2><section class="card"><h2>Expected outputs of the workshop</h2><ol class="numlist"><li>A shared set of aligned indicators linking fever testing, confirmed cases, RDT/ACT consumption and stock status.</li><li>Facility-level Minimum/Maximum stock levels and Reorder Levels computed for RDTs and ACTs.</li><li>eIDSR configured (or a documented configuration plan) with stock alert triggers and malaria epidemic thresholds.</li><li>Draft SOPs for responding to low-stock alerts and to epidemic threshold breaches.</li><li>Facility/district action plans with clear roles, responsibilities and timelines.</li></ol></section><section class="card"><h2>Logistics notes</h2><ul class="ticks"><li>Participants should bring at least 10 years of facility fever-case, RDT, confirmed-case and ACT consumption data (paper or electronic) for practical sessions on Days 2 to 5.</li><li>A laptop/tablet with eIDSR platform access (or demo credentials) is required for Day 4 and Day 5 practical sessions.</li><li>Daily sessions run 08:30 to 16:00/16:45 with a mid-morning break, lunch, and a mid-afternoon break as needed.</li></ul></section></div></main>
+</ol></div><div class="panel" role="tabpanel" id="outputs" aria-labelledby="tab-outputs" hidden><h2 class="printhead">Outputs and logistics</h2><section class="card"><h2>Expected outputs of the workshop</h2><ol class="numlist"><li>A shared set of aligned indicators linking fever testing, confirmed cases, RDT/ACT consumption and stock status.</li><li>Facility-level Minimum/Maximum stock levels and Reorder Levels computed for RDTs and ACTs.</li><li>eIDSR configured (or a documented configuration plan) with stock alert triggers and malaria epidemic thresholds.</li><li>Draft SOPs for responding to low-stock alerts and to epidemic threshold breaches.</li><li>Facility/district action plans with clear roles, responsibilities and timelines.</li></ol></section><section class="card"><h2>Logistics notes</h2><ul class="ticks"><li>Participants should bring at least 10 years of facility fever-case, RDT, confirmed-case and ACT consumption data (paper or electronic) for practical sessions on Days 2 to 5.</li><li>A laptop/tablet with eIDSR platform access (or demo credentials) is required for Day 4 and Day 5 practical sessions.</li><li>Daily sessions run 08:30 to 16:00/16:45 with a mid-morning break, lunch, and a mid-afternoon break as needed.</li></ul></section></div><div class="panel" role="tabpanel" id="presentation" aria-labelledby="tab-presentation" hidden><h2 class="printhead">Presentation</h2><div class="pres"><div class="pres-bar"><div><h2>Presentation</h2><p class="meta">eIDSR Weekly Malaria Data to track malaria commodities &nbsp;&middot;&nbsp; 11 slides</p></div><button type="button" class="pres-full" id="presFull">Full screen</button></div><div class="stage-wrap" id="stageWrap" tabindex="-1"><div class="stage" id="stage"><div class="slide sl-title" data-n="1"><div class="sl-badge">Workshop presentation</div><h2>eIDSR Weekly Malaria Data to track malaria commodities (RDTs and ACTs) and Setting of Malaria Epidemic Thresholds</h2><div class="sl-rule"></div><p class="sl-org">National Malaria Control Programme<br>Ministry of Health</p><p class="sl-date">21st to 25th September 2026</p></div><div class="slide sl-body c2" data-n="2"><div class="sl-head"><span class="sl-num">02</span><h2>Presentation outline</h2></div><div class="sl-content"><ol class="sl-outline"><li><button type="button" class="sl-go" data-slide="3"><span>03</span>Background</button></li><li><button type="button" class="sl-go" data-slide="4"><span>04</span>eIDSR data detects sudden increases in malaria cases</button></li><li><button type="button" class="sl-go" data-slide="5"><span>05</span>Malaria case trends to predict commodity consumption</button></li><li><button type="button" class="sl-go" data-slide="6"><span>06</span>Preventing stockouts especially in hard-to-reach areas</button></li><li><button type="button" class="sl-go" data-slide="7"><span>07</span>eIDSR data to validate LMIS consumption</button></li><li><button type="button" class="sl-go" data-slide="8"><span>08</span>Weekly surveillance supports outbreak detection</button></li><li><button type="button" class="sl-go" data-slide="9"><span>09</span>Weekly surveillance for rapid commodity response</button></li><li><button type="button" class="sl-go" data-slide="10"><span>10</span>eIDSR data for accountability and targeted supervision</button></li></ol></div></div><div class="slide sl-body c3" data-n="3"><div class="sl-head"><span class="sl-num">03</span><h2>Background</h2></div><div class="sl-content"><div class="sl-cards"><div class="sl-card c1"><b>1</b><p>Malaria transmission in Sierra Leone is perennial, accounting for 40% of clinical consultations.</p></div><div class="sl-card c2"><b>2</b><p>Health workers diagnose suspected malaria cases using rapid diagnostic tests (RDT) and microscopy, with facility-level results reported to the Health Management Information System (HMIS) as monthly aggregates.</p></div><div class="sl-card c3"><b>3</b><p>Antimalarial commodity stocks (RDTS, ACTs, ITNs, SP etc) are reported to the Logistics Management Information System (LMIS).</p></div><div class="sl-card c4"><b>4</b><p>NMCP needs to use eIDSR weekly malaria data to track malaria commodities because weekly surveillance is the earliest, most sensitive signal of commodity pressure.</p></div><div class="sl-card c5"><b>5</b><p>DHIS2 monthly LMIS data alone is too slow to prevent stockouts in high-burden or hard-to-reach districts/chiefdoms.</p></div></div></div></div><div class="slide sl-body c4" data-n="4"><div class="sl-head"><span class="sl-num">04</span><h2>Weekly eIDSR data detects sudden increases in malaria cases</h2></div><div class="sl-content"><div class="sl-groups g1"><div class="sl-grp"><p class="sl-lead">Monthly LMIS reporting shows consumption after 30 days, but malaria case increases happen within days. Weekly eIDSR data allows NMCP to see:</p><ul class="sl-pts"><li>Sharp increases in suspected malaria</li><li>Rising test positivity</li><li>Increased confirmed cases</li><li>Increased ACT consumption pressure</li></ul></div></div><div class="sl-take">This early warning helps NMCP anticipate where RDTs and ACTs will run out before the monthly LMIS report arrives.</div></div></div><div class="slide sl-body c5" data-n="5"><div class="sl-head"><span class="sl-num">05</span><h2>Malaria case trends to predict commodity consumption</h2></div><div class="sl-content"><div class="sl-groups g2"><div class="sl-grp"><p class="sl-lead">RDT and ACT consumption are directly linked to:</p><ul class="sl-pts"><li>Number of suspected cases (RDT use)</li><li>Number of confirmed cases (ACT use)</li></ul></div><div class="sl-grp"><p class="sl-lead">When eIDSR shows a spike in cases:</p><ul class="sl-pts"><li>RDT use will increase immediately</li><li>ACT use will increase within 1 to 3 days</li></ul></div></div><div class="sl-take">Weekly data allows NMCP to forecast consumption and trigger emergency resupply.</div></div></div><div class="slide sl-body c1" data-n="6"><div class="sl-head"><span class="sl-num">06</span><h2>Preventing stockouts especially in hard-to-reach areas</h2></div><div class="sl-content"><div class="sl-groups g2"><div class="sl-grp"><p class="sl-lead">Districts like Bonthe, Moyamba, Port Loko, Kambia and riverine PHUs face:</p><ul class="sl-pts"><li>Boat-dependent transport</li><li>Delayed deliveries</li><li>Limited buffer stock capacity</li></ul></div><div class="sl-grp"><p class="sl-lead">Monthly LMIS data is too slow for these areas. Weekly eIDSR data enables:</p><ul class="sl-pts"><li>Early identification of PHUs at risk</li><li>Faster mobilization of emergency stocks</li><li>Better planning of boat logistics</li></ul></div></div></div></div><div class="slide sl-body c2" data-n="7"><div class="sl-head"><span class="sl-num">07</span><h2>eIDSR data to validate LMIS consumption</h2></div><div class="sl-content"><div class="sl-groups g2"><div class="sl-grp"><p class="sl-lead">LMIS sometimes shows:</p><ul class="sl-pts"><li>Under-reported consumption</li><li>Over-reported closing balances</li><li>Missing reports</li><li>Delayed submissions</li></ul></div><div class="sl-grp"><p class="sl-lead">Weekly eIDSR data helps NMCP detect inconsistencies:</p><div class="sl-sigs"><div class="sl-sig"><span class="sl-if">High cases + low RDT use</span><span class="sl-arrow" aria-hidden="true">&#8594;</span><span class="sl-then">under-reporting</span></div><div class="sl-sig"><span class="sl-if">Low cases + high ACT use</span><span class="sl-arrow" aria-hidden="true">&#8594;</span><span class="sl-then">irrational use</span></div><div class="sl-sig"><span class="sl-if">High cases + zero ACT use</span><span class="sl-arrow" aria-hidden="true">&#8594;</span><span class="sl-then">stockout</span></div></div></div></div><div class="sl-take">This improves data quality and supply chain accuracy.</div></div></div><div class="slide sl-body c3" data-n="8"><div class="sl-head"><span class="sl-num">08</span><h2>Weekly surveillance supports outbreak detection</h2></div><div class="sl-content"><div class="sl-groups g2"><div class="sl-grp"><p class="sl-lead">Malaria outbreaks begin with:</p><ul class="sl-pts"><li>eIDSR detects these Rising fever cases</li><li>Rising test positivity</li><li>Rising confirmed malaria cases</li></ul></div><div class="sl-grp"><p class="sl-lead">eIDSR detects patterns weeks earlier than DHIS2 LMIS. Early detection allows NMCP to:</p><ul class="sl-pts"><li>Pre-position RDTs and ACTs</li><li>Activate Rapid Response Teams</li><li>Prevent facility-level stockouts during outbreaks</li></ul></div></div></div></div><div class="slide sl-body c4" data-n="9"><div class="sl-head"><span class="sl-num">09</span><h2>Weekly surveillance for rapid commodity response</h2></div><div class="sl-content"><div class="sl-groups g1"><div class="sl-grp"><p class="sl-lead">NMCP can use weekly eIDSR trends to:</p><ul class="sl-pts"><li>Adjust buffer stock levels</li><li>Prioritize high-burden PHUs</li><li>Plan distribution routes</li><li>Allocate commodities based on real-time burden</li></ul></div></div><div class="sl-take">This is essential for districts with seasonal spikes (e.g., rainy season peaks).</div></div></div><div class="slide sl-body c5" data-n="10"><div class="sl-head"><span class="sl-num">10</span><h2>eIDSR data for accountability and targeted supervision</h2></div><div class="sl-content"><div class="sl-groups g1"><div class="sl-grp"><p class="sl-lead">Supervisors can use weekly trends to:</p><ul class="sl-pts"><li>Identify PHUs with unusual patterns</li><li>Target facilities for supervision</li><li>Verify stock cards and registers</li><li>Ensure correct RDT/ACT use</li></ul></div></div><div class="sl-take">This strengthens both surveillance and supply chain governance.</div></div></div><div class="slide sl-title sl-end" data-n="11"><h2>Thank You</h2><div class="sl-rule"></div><p class="sl-org">National Malaria Control Programme<br>Ministry of Health</p></div></div><div class="pres-progress"><i id="presProg"></i></div><div class="pres-nav"><button type="button" class="pnav" id="presPrev" aria-label="Previous slide">&#8592; Previous</button><span class="pcount" id="presCount" aria-live="polite">1 / 11</span><button type="button" class="pnav" id="presNext" aria-label="Next slide">Next &#8594;</button></div></div><ol class="thumbs" id="thumbs"><li><button type="button" class="thumb" data-slide="1"><span>1</span>Title</button></li><li><button type="button" class="thumb" data-slide="2"><span>2</span>Presentation outline</button></li><li><button type="button" class="thumb" data-slide="3"><span>3</span>Background</button></li><li><button type="button" class="thumb" data-slide="4"><span>4</span>Weekly eIDSR data detects sudden increases in malaria cases</button></li><li><button type="button" class="thumb" data-slide="5"><span>5</span>Malaria case trends to predict commodity consumption</button></li><li><button type="button" class="thumb" data-slide="6"><span>6</span>Preventing stockouts especially in hard-to-reach areas</button></li><li><button type="button" class="thumb" data-slide="7"><span>7</span>eIDSR data to validate LMIS consumption</button></li><li><button type="button" class="thumb" data-slide="8"><span>8</span>Weekly surveillance supports outbreak detection</button></li><li><button type="button" class="thumb" data-slide="9"><span>9</span>Weekly surveillance for rapid commodity response</button></li><li><button type="button" class="thumb" data-slide="10"><span>10</span>eIDSR data for accountability and targeted supervision</button></li><li><button type="button" class="thumb" data-slide="11"><span>11</span>Thank You</button></li></ol><p class="pres-hint">Use the arrow keys or swipe to move between slides.</p></div></div></main>
 <script>
 /* ====================================================================
    REGISTRATION BACKEND
    Paste the Apps Script web app address below, the one ending in /exec.
    ==================================================================== */
-var API_URL = "";
+var API_URL = "https://script.google.com/macros/s/AKfycbwIBdTU7Chvs7mXsTWPaD2rQ7SBvELSMItkUL4pYpmjnxlMuASIwcJz0gx86PAcQS2S7w/exec";
 var QKEY = "eidsr-workshop-reg-queue";
 
 (function(){
@@ -328,6 +410,59 @@ var QKEY = "eidsr-workshop-reg-queue";
   window.addEventListener("online", flush);
 })();
 
+/* ------------------------------ presentation viewer */
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('#stage .slide'));
+  if (!slides.length) return;
+  var thumbs = Array.prototype.slice.call(document.querySelectorAll('.thumb'));
+  var cur = 0, total = slides.length;
+  var prev = document.getElementById('presPrev'), next = document.getElementById('presNext');
+  var count = document.getElementById('presCount'), prog = document.getElementById('presProg');
+  function show(i){
+    cur = Math.max(0, Math.min(total - 1, i));
+    slides.forEach(function(s, j){ s.classList.toggle('on', j === cur); s.setAttribute('aria-hidden', j === cur ? 'false' : 'true'); });
+    thumbs.forEach(function(t, j){ t.setAttribute('aria-current', j === cur ? 'true' : 'false'); });
+    count.textContent = (cur + 1) + ' / ' + total;
+    prog.style.width = ((cur + 1) / total * 100) + '%';
+    prev.disabled = cur === 0; next.disabled = cur === total - 1;
+  }
+  window.presShow = show;
+  prev.addEventListener('click', function(){ show(cur - 1); });
+  next.addEventListener('click', function(){ show(cur + 1); });
+  thumbs.forEach(function(t){ t.addEventListener('click', function(){ show(+t.getAttribute('data-slide') - 1); }); });
+  document.querySelectorAll('.sl-go').forEach(function(b){
+    b.addEventListener('click', function(){ show(+b.getAttribute('data-slide') - 1); });
+  });
+  document.addEventListener('keydown', function(e){
+    var panel = document.getElementById('presentation');
+    if (!panel || panel.hidden) return;
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+    if (e.target.classList && e.target.classList.contains('tab')) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); show(cur + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); show(cur - 1); }
+    if (e.key === 'Home'){ e.preventDefault(); show(0); }
+    if (e.key === 'End'){ e.preventDefault(); show(total - 1); }
+  });
+  var sx = null, stage = document.getElementById('stage');
+  stage.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  stage.addEventListener('touchend', function(e){
+    if (sx === null) return;
+    var dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 45) show(cur + (dx < 0 ? 1 : -1));
+  });
+  var wrap = document.getElementById('stageWrap'), fb = document.getElementById('presFull');
+  fb.addEventListener('click', function(){
+    if (document.fullscreenElement) { document.exitFullscreen(); return; }
+    if (wrap.requestFullscreen) wrap.requestFullscreen();
+    else if (wrap.webkitRequestFullscreen) wrap.webkitRequestFullscreen();
+  });
+  document.addEventListener('fullscreenchange', function(){
+    fb.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen';
+  });
+  show(0);
+})();
+
 (function(){
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   function open(id, focus){
@@ -343,7 +478,14 @@ var QKEY = "eidsr-workshop-reg-queue";
     if (window.scrollY > nav.offsetTop) window.scrollTo(0, nav.offsetTop);
   }
   tabs.forEach(function(t, i){
-    t.addEventListener('click', function(){ open(t.getAttribute('aria-controls')); });
+    t.addEventListener('click', function(){
+      var id = t.getAttribute('aria-controls');
+      open(id);
+      if (id === 'presentation'){
+        var w = document.getElementById('stageWrap');
+        if (w) w.focus({preventScroll:true});
+      }
+    });
     t.addEventListener('keydown', function(e){
       var j = null;
       if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
