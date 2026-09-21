@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eIDSR Malaria Integration Workshop: 5-Day Agenda</title>
+<style>
+:root{
+  --blue:#2c6793; --blue-dk:#1f4a6a; --blue-lt:#e8f0f7; --bg:#f0f5f9; --line:#d0dde8;
+  --ink:#1a3a5c; --text:#2b3a47; --muted:#6c7a89; --gold:#ffc107;
+  --c1:#2c6793; --c2:#c98a00; --c3:#0f9d58; --c4:#8a5ea8; --c5:#b5523b;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Roboto','Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);
+  font-size:15px;line-height:1.6;-webkit-text-size-adjust:100%}
+h1,h2,h3,h4{color:var(--ink);margin:0 0 .5em;line-height:1.3}
+p{margin:0 0 .8em}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+header.top{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dk) 100%);color:#fff;border-bottom:4px solid var(--gold)}
+.top-in{max-width:1180px;margin:0 auto;padding:26px 22px 22px}
+.kicker{display:inline-block;background:var(--gold);color:#4a3600;font-weight:800;font-size:12px;letter-spacing:1.4px;
+  text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:12px}
+header h1{color:#fff;font-size:25px;max-width:62ch;margin:0 0 12px}
+.stats{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13px;color:rgba(255,255,255,.8)}
+.stats b{color:#fff;font-size:18px;margin-right:5px}
+
+nav.tabs{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(30,70,110,.05)}
+.tabs-in{max-width:1180px;margin:0 auto;padding:0 14px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{--a:var(--blue);background:none;border:0;border-bottom:4px solid transparent;color:var(--muted);font-weight:700;
+  font-size:14px;padding:15px 16px 12px;white-space:nowrap;min-height:48px}
+.tab.c1{--a:var(--c1)} .tab.c2{--a:var(--c2)} .tab.c3{--a:var(--c3)} .tab.c4{--a:var(--c4)} .tab.c5{--a:var(--c5)}
+.tab:hover{color:var(--a)}
+.tab[aria-selected="true"]{color:var(--a);border-bottom-color:var(--a)}
+
+main{max-width:1180px;margin:0 auto;padding:22px 22px 60px}
+.panel[hidden]{display:none}
+.printhead{display:none}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:18px;
+  box-shadow:0 1px 3px rgba(30,70,110,.05)}
+.card.lead{border-left:6px solid var(--gold)}
+.card h2{font-size:18px}
+.card h3{font-size:15px;text-transform:uppercase;letter-spacing:.8px;color:var(--blue);font-size:13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.two .card{margin-bottom:18px}
+
+.numlist{margin:0;padding:0;list-style:none;counter-reset:n}
+.numlist li{counter-increment:n;position:relative;padding:10px 0 10px 46px;border-top:1px solid #eef3f7}
+.numlist li:first-child{border-top:0}
+.numlist li:before{content:counter(n);position:absolute;left:0;top:9px;width:30px;height:30px;border-radius:50%;
+  background:var(--blue-lt);color:var(--blue);font-weight:800;font-size:13px;display:grid;place-items:center}
+.ticks{margin:0;padding:0;list-style:none}
+.ticks li{position:relative;padding:6px 0 6px 28px}
+.ticks li:before{content:"";position:absolute;left:4px;top:13px;width:11px;height:6px;border-left:2.5px solid var(--c3);
+  border-bottom:2.5px solid var(--c3);transform:rotate(-45deg)}
+.chips{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--blue-lt);color:var(--blue-dk);font-weight:600;font-size:13.5px;padding:7px 13px;border-radius:999px}
+
+.daylist{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.jump{--a:var(--blue);width:100%;display:flex;gap:12px;align-items:center;text-align:left;background:#f7fafc;
+  border:1px solid var(--line);border-left:4px solid var(--a);border-radius:8px;padding:10px 12px;color:var(--text);font-size:13.5px}
+.jump.c1{--a:var(--c1)} .jump.c2{--a:var(--c2)} .jump.c3{--a:var(--c3)} .jump.c4{--a:var(--c4)} .jump.c5{--a:var(--c5)}
+.jump b{color:var(--a);white-space:nowrap}
+.jump:hover{background:var(--blue-lt)}
+
+.indgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.ind{background:#f7fafc;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:10px;padding:13px 15px}
+.ind:nth-child(2){border-top-color:var(--c2)} .ind:nth-child(3){border-top-color:var(--c3)}
+.ind:nth-child(4){border-top-color:var(--c4)} .ind:nth-child(5){border-top-color:var(--c5)}
+.ind b{display:block;color:var(--ink);margin-bottom:4px}
+.ind span{font-size:13.5px;color:var(--text)}
+
+.dayhead{--a:var(--blue);display:flex;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);
+  border-top:5px solid var(--a);border-radius:12px;padding:18px 22px;margin-bottom:18px}
+.dayhead.c1{--a:var(--c1)} .dayhead.c2{--a:var(--c2)} .dayhead.c3{--a:var(--c3)} .dayhead.c4{--a:var(--c4)} .dayhead.c5{--a:var(--c5)}
+.daynum{background:var(--a);color:#fff;font-weight:800;font-size:15px;padding:12px 16px;border-radius:10px;white-space:nowrap}
+.dayhead h2{font-size:21px;margin:0 0 2px}
+.meta{margin:0;color:var(--muted);font-size:13.5px}
+.objectives{border-left:5px solid var(--c3)}
+
+.timeline{margin:0;padding:0;list-style:none;position:relative}
+.timeline:before{content:"";position:absolute;left:84px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline li{display:grid;grid-template-columns:70px 1fr;gap:28px;margin-bottom:12px;position:relative}
+.timeline li:before{content:"";position:absolute;left:79px;top:18px;width:12px;height:12px;border-radius:50%;
+  background:#fff;border:3px solid var(--blue)}
+.timeline li.pause:before{border-color:var(--gold);background:var(--gold)}
+.time{text-align:right;padding-top:9px}
+.time b{display:block;color:var(--ink);font-size:15px}
+.time span{display:block;color:var(--muted);font-size:12.5px}
+.sesscard{--a:var(--blue);background:#fff;border:1px solid var(--line);border-left:5px solid var(--a);border-radius:10px;
+  padding:13px 16px;box-shadow:0 1px 3px rgba(30,70,110,.05)}
+.sesscard.c1{--a:var(--c1)} .sesscard.c2{--a:var(--c2)} .sesscard.c3{--a:var(--c3)} .sesscard.c4{--a:var(--c4)} .sesscard.c5{--a:var(--c5)}
+.sesstop{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sesscard h4{margin:0 0 4px;font-size:15.5px}
+.sesstop em{font-style:normal;font-size:12px;color:var(--muted);white-space:nowrap;background:#f3f7fa;border-radius:6px;padding:2px 8px}
+.sesscard p{margin:6px 0 0;font-size:14px;color:var(--text)}
+.leadchip{display:inline-block;margin-top:4px;background:var(--a);color:#fff;font-size:11.5px;font-weight:700;
+  letter-spacing:.4px;padding:3px 10px;border-radius:999px}
+.pausebar{display:flex;justify-content:space-between;align-items:center;background:#fff8e1;border:1px dashed #e8c14f;
+  border-radius:10px;padding:10px 16px;color:#6b5200;font-weight:700}
+.pause.lunch .pausebar{background:#fff3d0}
+.pausebar em{font-style:normal;font-weight:500;font-size:12.5px}
+
+.reg{--a:var(--blue);border-top:5px solid var(--a)}
+.reg.c1{--a:var(--c1)} .reg.c2{--a:var(--c2)} .reg.c3{--a:var(--c3)} .reg.c4{--a:var(--c4)} .reg.c5{--a:var(--c5)}
+.reg h3{color:var(--a)}
+.regnote{color:var(--muted);font-size:13.5px;margin:-4px 0 14px}
+.regrow{display:grid;grid-template-columns:1.3fr 1fr 1.4fr .7fr 1fr;gap:12px}
+.regrow label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;font-weight:700;color:var(--ink)}
+.regrow input,.regrow select{font:inherit;font-weight:400;font-size:15px;padding:10px 12px;min-height:44px;
+  border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);width:100%}
+.regrow input:focus,.regrow select:focus{outline:none;border-color:var(--a);box-shadow:0 0 0 3px rgba(44,103,147,.14)}
+.regrow .bad{border-color:#d9534f;background:#fff6f5}
+.regrow select.dayfix{background:#eef3f7;color:var(--ink);font-weight:700;cursor:not-allowed;opacity:1;
+  -webkit-text-fill-color:var(--ink)}
+.regfoot{display:flex;align-items:center;gap:14px;margin-top:14px;flex-wrap:wrap}
+.signin{background:var(--a);color:#fff;border:0;border-radius:8px;font-weight:700;font-size:15px;padding:11px 28px;min-height:44px}
+.signin:hover{filter:brightness(.93)}
+.signin:disabled{opacity:.55;cursor:wait}
+.regmsg{font-size:14px;font-weight:600}
+.regmsg.ok{color:#0b7a44} .regmsg.err{color:#c0392b} .regmsg.wait{color:var(--muted)} .regmsg.held{color:#8a6a00}
+
+@media (max-width:1100px){ .regrow{grid-template-columns:1fr 1fr} }
+@media (max-width:860px){ .two{grid-template-columns:1fr} }
+@media (max-width:640px){
+  main{padding:16px 12px 50px}
+  .top-in{padding:20px 14px 18px}
+  header h1{font-size:19px}
+  .card{padding:16px}
+  .dayhead{flex-direction:column;align-items:flex-start;gap:10px;padding:16px}
+  .dayhead h2{font-size:18px}
+  .timeline:before{left:9px}
+  .timeline li{grid-template-columns:1fr;gap:6px;padding-left:28px}
+  .timeline li:before{left:4px;top:4px}
+  .time{text-align:left;padding-top:0;display:flex;gap:8px;align-items:baseline}
+  .time span:before{content:"to ";}
+  .sesstop{flex-direction:column;gap:4px}
+  .regrow{grid-template-columns:1fr}
+  .signin{width:100%}
+}
+@media print{
+  nav.tabs{display:none}
+  .reg{display:none}
+  .panel[hidden]{display:block !important}
+  .printhead{display:block;font-size:20px;margin:24px 0 10px;page-break-before:always}
+  .panel:first-of-type .printhead{page-break-before:auto}
+  body{background:#fff} .card,.sesscard,.dayhead{box-shadow:none}
+  .timeline li{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <span class="kicker">5-Day Workshop Agenda</span>
+  <h1>Integration of Malaria Data and Commodities (RDTs and ACTs) Tracking Using the eIDSR Platform and Setting of Malaria Epidemic Thresholds</h1>
+  <div class="stats"><div><b>5</b>days</div><div><b>38</b>sessions</div><div><b>08:30</b>daily start</div>
+    <div><b>5</b>key indicator groups</div></div>
+</div></header>
+<nav class="tabs" aria-label="Agenda sections"><div class="tabs-in" role="tablist"><button type="button" role="tab" class="tab " id="tab-overview" aria-controls="overview" aria-selected="true" tabindex="0">Overview</button><button type="button" role="tab" class="tab c1" id="tab-day1" aria-controls="day1" aria-selected="false" tabindex="-1">Day 1</button><button type="button" role="tab" class="tab c2" id="tab-day2" aria-controls="day2" aria-selected="false" tabindex="-1">Day 2</button><button type="button" role="tab" class="tab c3" id="tab-day3" aria-controls="day3" aria-selected="false" tabindex="-1">Day 3</button><button type="button" role="tab" class="tab c4" id="tab-day4" aria-controls="day4" aria-selected="false" tabindex="-1">Day 4</button><button type="button" role="tab" class="tab c5" id="tab-day5" aria-controls="day5" aria-selected="false" tabindex="-1">Day 5</button><button type="button" role="tab" class="tab " id="tab-outputs" aria-controls="outputs" aria-selected="false" tabindex="-1">Outputs and logistics</button></div></nav>
+<main><div class="panel" role="tabpanel" id="overview" aria-labelledby="tab-overview"><h2 class="printhead">Overview</h2><section class="card lead"><h2>Background</h2><p>Effective malaria control depends on the timely, accurate linkage of surveillance data (suspected fever, confirmed malaria and treatment of confirmed malaria cases) with commodity consumption data (RDTs used and ACTs dispensed), and visibility of stock levels at facility and district level. This workshop brings together surveillance, case management, and supply-chain staff to align these indicators, build minimum/maximum stock-level and reorder logic into routine reporting, and configure epidemic threshold alerts within eIDSR.</p></section>
+<section class="card"><h2>Overall objectives</h2><ol class="numlist"><li>Strengthen the linkage between suspected fever cases tested and RDTs consumed, and between confirmed malaria cases and ACTs dispensed, within routine facility and district reporting.</li><li>Build participant capacity to compute Average Monthly Consumption (AMC), Minimum Stock Level, Maximum Stock Level, Reorder Level and Safety Stock for RDTs and ACTs.</li><li>Configure and/or reinforce use of the eIDSR platform to capture, validate, and visualize malaria commodity and case-based indicators in real time.</li><li>Enable automated/semi-automated stock alerts within eIDSR to trigger timely replenishment and mitigate stockouts.</li><li>Build capacity to define, set, and interpret malaria epidemic thresholds (alert and epidemic/action thresholds) using historical facility/district data.</li><li>Produce facility- and district-level action plans, including SOPs for threshold breaches and stock alerts.</li></ol></section>
+<div class="two">
+<section class="card"><h2>Target participants</h2><ul class="chips"><li>National Surveillance Officers</li><li>Malaria Epidemiology Surveillance Monitoring and Evaluation Officers</li><li>Pharmacists/Stores/Logistics Officers</li><li>IT/Data Scientist Specialists</li><li>eIDSR data managers</li></ul></section>
+<section class="card"><h2>The five days</h2><ol class="daylist"><li><button type="button" class="jump c1" data-go="day1"><b>Day 1</b><span>Orientation, Baseline Assessment and the eIDSR Platform</span></button></li><li><button type="button" class="jump c2" data-go="day2"><b>Day 2</b><span>Linking Suspected Fever Cases, Testing and RDT Consumption</span></button></li><li><button type="button" class="jump c3" data-go="day3"><b>Day 3</b><span>Confirmed Cases, ACT Dispensing and Stock-Level Management</span></button></li><li><button type="button" class="jump c4" data-go="day4"><b>Day 4</b><span>Integrating Commodity and Stock Data into eIDSR</span></button></li><li><button type="button" class="jump c5" data-go="day5"><b>Day 5</b><span>Setting Malaria Epidemic Thresholds and Action Planning</span></button></li></ol></section>
+</div>
+<section class="card"><h2>Key indicators covered</h2><div class="indgrid"><div class="ind"><b>Testing Rate</b><span>(Number of RDTs used ÷ Number of suspected fever cases seen) × 100</span></div><div class="ind"><b>Test Positivity Rate</b><span>(Confirmed malaria cases ÷ Number tested) × 100</span></div><div class="ind"><b>ACT Utilization Ratio</b><span>(Number of ACTs dispensed ÷ Number of confirmed malaria cases) × 100</span></div><div class="ind"><b>Stock measures</b><span>Stock on Hand, Average Monthly Consumption (AMC), Minimum Stock Level, Maximum Stock Level, Reorder Level, Months of Stock (MOS)</span></div><div class="ind"><b>Thresholds</b><span>Alert Threshold and Epidemic/Action Threshold for malaria case trends</span></div></div></section></div><div class="panel" role="tabpanel" id="day1" aria-labelledby="tab-day1" hidden><h2 class="printhead">Day 1</h2><div class="dayhead c1"><div class="daynum">Day 1</div><div><h2>Orientation, Baseline Assessment and the eIDSR Platform</h2><p class="meta">08:30 to 16:00 &nbsp;&middot;&nbsp; 8 sessions</p></div></div>
+<section class="card reg c1"><h3>Registration</h3><p class="regnote">Sign in for the day. Your details go straight to the workshop register.</p><form class="regform" data-day="Day 1" novalidate><div class="regrow"><label>Name<input type="text" name="name" autocomplete="name" required></label><label>Telephone<input type="tel" name="phone" inputmode="numeric" maxlength="9" placeholder="9 digits, e.g. 076123456" required></label><label>Email<input type="email" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required></label><label>Day<select name="day" class="dayfix" disabled aria-readonly="true" title="Set by the day you are on"><option value="Day 1" selected>Day 1</option><option value="Day 2">Day 2</option><option value="Day 3">Day 3</option><option value="Day 4">Day 4</option><option value="Day 5">Day 5</option></select></label><label>Organisation<select name="organisation" required><option value="">Select organisation</option><option>NPHA</option><option>DPC</option><option>NMCP</option><option>DPS</option><option>NMSA</option><option>HEAL SL</option><option>CHAI</option><option>ICF-SL</option><option>EPIC</option><option>PMI Evolve</option></select></label></div><div class="regfoot"><button type="submit" class="signin">Sign in</button><span class="regmsg" role="status" aria-live="polite"></span></div></form></section>
+<section class="card objectives"><h3>Day objectives</h3><ul class="ticks"><li>Set shared expectations and review workshop objectives.</li><li>Establish a common understanding of malaria commodity management within national guidelines.</li><li>Introduce the architecture, user roles, and data flow of the eIDSR platform.</li><li>Assess current facility-level practices for linking testing and treatment data.</li></ul></section>
+<ol class="timeline">
+<li class="sess"><div class="time"><b>08:30</b><span>09:00</span></div><div class="sesscard c1"><div class="sesstop"><h4>Registration and Welcome</h4><em>30 min</em></div><p>Sign-in. Opening remarks by MoH/Programme Manager</p></div></li>
+<li class="sess"><div class="time"><b>09:00</b><span>09:30</span></div><div class="sesscard c1"><div class="sesstop"><h4>Statements</h4><em>30 min</em></div><span class="leadchip">All Leads or representatives</span><p>NPHA, DPC, NMCP, DPS, NMSA. Partners: HEAL SL, CHAI, ICF-SL, EPIC, PMI Evolve</p></div></li>
+<li class="sess"><div class="time"><b>09:00</b><span>09:30</span></div><div class="sesscard c1"><div class="sesstop"><h4>Workshop Objectives and Overview</h4><em>30 min</em></div><p>Presentation; review of the 5-day agenda and expected outputs</p></div></li>
+<li class="sess"><div class="time"><b>09:30</b><span>10:30</span></div><div class="sesscard c1"><div class="sesstop"><h4>Malaria Commodity Management Refresher</h4><em>1 h</em></div><p>Presentation: national case management guidelines, RDT and ACT protocols, presumptive vs confirmed treatment</p></div></li>
+<li class="pause brk"><div class="time"><b>10:30</b><span>10:45</span></div><div class="pausebar"><span>Break</span><em>15 min</em></div></li>
+<li class="sess"><div class="time"><b>10:45</b><span>12:15</span></div><div class="sesscard c1"><div class="sesstop"><h4>Key Indicators: Testing vs Confirmation vs Treatment</h4><em>1 h 30 min</em></div><p>Facilitated discussion: suspected fever cases tested vs RDTs used; confirmed cases vs ACTs dispensed; worked examples</p></div></li>
+<li class="pause lunch"><div class="time"><b>12:15</b><span>13:15</span></div><div class="pausebar"><span>Lunch</span><em>1 h</em></div></li>
+<li class="sess"><div class="time"><b>13:15</b><span>14:30</span></div><div class="sesscard c1"><div class="sesstop"><h4>Introduction to the eIDSR Platform</h4><em>1 h 15 min</em></div><span class="leadchip">NPHA</span><p>Demo: platform architecture, reporting units, user roles/permissions, existing malaria data fields</p></div></li>
+<li class="sess"><div class="time"><b>14:30</b><span>15:30</span></div><div class="sesscard c1"><div class="sesstop"><h4>Baseline Assessment (Group Work)</h4><em>1 h</em></div><p>Small groups map current facility recording/reporting practices and identify gaps against eIDSR fields</p></div></li>
+<li class="sess"><div class="time"><b>15:30</b><span>16:00</span></div><div class="sesscard c1"><div class="sesstop"><h4>Plenary Report-back and Wrap-up</h4><em>30 min</em></div><p>Groups present gaps; facilitator summary; Day 2 preview</p></div></li>
+</ol></div><div class="panel" role="tabpanel" id="day2" aria-labelledby="tab-day2" hidden><h2 class="printhead">Day 2</h2><div class="dayhead c2"><div class="daynum">Day 2</div><div><h2>Linking Suspected Fever Cases, Testing and RDT Consumption</h2><p class="meta">08:30 to 16:00 &nbsp;&middot;&nbsp; 7 sessions</p></div></div>
+<section class="card reg c2"><h3>Registration</h3><p class="regnote">Sign in for the day. Your details go straight to the workshop register.</p><form class="regform" data-day="Day 2" novalidate><div class="regrow"><label>Name<input type="text" name="name" autocomplete="name" required></label><label>Telephone<input type="tel" name="phone" inputmode="numeric" maxlength="9" placeholder="9 digits, e.g. 076123456" required></label><label>Email<input type="email" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required></label><label>Day<select name="day" class="dayfix" disabled aria-readonly="true" title="Set by the day you are on"><option value="Day 1">Day 1</option><option value="Day 2" selected>Day 2</option><option value="Day 3">Day 3</option><option value="Day 4">Day 4</option><option value="Day 5">Day 5</option></select></label><label>Organisation<select name="organisation" required><option value="">Select organisation</option><option>NPHA</option><option>DPC</option><option>NMCP</option><option>DPS</option><option>NMSA</option><option>HEAL SL</option><option>CHAI</option><option>ICF-SL</option><option>EPIC</option><option>PMI Evolve</option></select></label></div><div class="regfoot"><button type="submit" class="signin">Sign in</button><span class="regmsg" role="status" aria-live="polite"></span></div></form></section>
+<section class="card objectives"><h3>Day objectives</h3><ul class="ticks"><li>Review data collection tools used to capture fever cases and RDT use.</li><li>Practice computing and interpreting the Testing Rate and Test Positivity Rate.</li><li>Reconcile facility registers against RDT consumption/stock records.</li><li>Identify common data-quality issues and how to resolve them.</li></ul></section>
+<ol class="timeline">
+<li class="sess"><div class="time"><b>08:30</b><span>09:00</span></div><div class="sesscard c2"><div class="sesstop"><h4>Recap of Day 1</h4><em>30 min</em></div><p>Sign-in/Recap/Discussions</p></div></li>
+<li class="sess"><div class="time"><b>09:00</b><span>10:00</span></div><div class="sesscard c2"><div class="sesstop"><h4>Data Collection Tools Review</h4><em>1 h</em></div><span class="leadchip">NMCP</span><p>Walkthrough of fever/OPD register, RDT tally sheet, laboratory register, monthly summary form</p></div></li>
+<li class="sess"><div class="time"><b>10:00</b><span>10:45</span></div><div class="sesscard c2"><div class="sesstop"><h4>Computing the Testing Rate</h4><em>45 min</em></div><p>Facilitated calculation exercise: RDTs used ÷ suspected fever cases; targets and interpretation</p></div></li>
+<li class="pause brk"><div class="time"><b>10:45</b><span>11:00</span></div><div class="pausebar"><span>Break</span><em>15 min</em></div></li>
+<li class="sess"><div class="time"><b>11:00</b><span>12:30</span></div><div class="sesscard c2"><div class="sesstop"><h4>Practical: Reconciling Registers with RDT Consumption</h4><em>1 h 30 min</em></div><span class="leadchip">ALL</span><p>Groups work with sample facility data to reconcile fever-case counts against RDTs issued/used</p></div></li>
+<li class="pause lunch"><div class="time"><b>12:30</b><span>13:30</span></div><div class="pausebar"><span>Lunch</span><em>1 h</em></div></li>
+<li class="sess"><div class="time"><b>13:30</b><span>14:30</span></div><div class="sesscard c2"><div class="sesstop"><h4>Data Quality Checks</h4><em>1 h</em></div><span class="leadchip">NMCP/ICF-SL</span><p>Session on over-testing, under-testing, unrecorded tests, and register vs stock-card discrepancies</p></div></li>
+<li class="sess"><div class="time"><b>14:30</b><span>15:30</span></div><div class="sesscard c2"><div class="sesstop"><h4>Group Exercise: Spotting the Discrepancy</h4><em>1 h</em></div><p>Case studies with deliberate data errors; groups identify and correct them</p></div></li>
+<li class="sess"><div class="time"><b>15:30</b><span>16:00</span></div><div class="sesscard c2"><div class="sesstop"><h4>Plenary Discussion and Wrap-up</h4><em>30 min</em></div><p>Key takeaways; Day 3 preview</p></div></li>
+</ol></div><div class="panel" role="tabpanel" id="day3" aria-labelledby="tab-day3" hidden><h2 class="printhead">Day 3</h2><div class="dayhead c3"><div class="daynum">Day 3</div><div><h2>Confirmed Cases, ACT Dispensing and Stock-Level Management</h2><p class="meta">08:30 to 16:00 &nbsp;&middot;&nbsp; 7 sessions</p></div></div>
+<section class="card reg c3"><h3>Registration</h3><p class="regnote">Sign in for the day. Your details go straight to the workshop register.</p><form class="regform" data-day="Day 3" novalidate><div class="regrow"><label>Name<input type="text" name="name" autocomplete="name" required></label><label>Telephone<input type="tel" name="phone" inputmode="numeric" maxlength="9" placeholder="9 digits, e.g. 076123456" required></label><label>Email<input type="email" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required></label><label>Day<select name="day" class="dayfix" disabled aria-readonly="true" title="Set by the day you are on"><option value="Day 1">Day 1</option><option value="Day 2">Day 2</option><option value="Day 3" selected>Day 3</option><option value="Day 4">Day 4</option><option value="Day 5">Day 5</option></select></label><label>Organisation<select name="organisation" required><option value="">Select organisation</option><option>NPHA</option><option>DPC</option><option>NMCP</option><option>DPS</option><option>NMSA</option><option>HEAL SL</option><option>CHAI</option><option>ICF-SL</option><option>EPIC</option><option>PMI Evolve</option></select></label></div><div class="regfoot"><button type="submit" class="signin">Sign in</button><span class="regmsg" role="status" aria-live="polite"></span></div></form></section>
+<section class="card objectives"><h3>Day objectives</h3><ul class="ticks"><li>Link confirmed malaria cases to ACT dispensing practices.</li><li>Understand and apply Minimum/Maximum stock-level methodology.</li><li>Calculate AMC, Minimum Stock Level, Maximum Stock Level, Reorder Level, and Safety Stock for RDTs and ACTs.</li><li>Identify stockout risk triggers and mitigation actions.</li></ul></section>
+<ol class="timeline">
+<li class="sess"><div class="time"><b>08:30</b><span>09:00</span></div><div class="sesscard c3"><div class="sesstop"><h4>Recap of Day 2</h4><em>30 min</em></div><p>Sign-in/Recap/Discussions</p></div></li>
+<li class="sess"><div class="time"><b>09:00</b><span>10:00</span></div><div class="sesscard c3"><div class="sesstop"><h4>Confirmed Cases vs ACT Dispensed</h4><em>1 h</em></div><span class="leadchip">NMCP/DPS/CHAI</span><p>Presentation: rational use of ACTs, ACT Utilization Ratio, risks of presumptive treatment</p></div></li>
+<li class="sess"><div class="time"><b>10:00</b><span>10:45</span></div><div class="sesscard c3"><div class="sesstop"><h4>Stock Management Principles</h4><em>45 min</em></div><p>Presentation: AMC, lead time, safety stock, Min/Max methodology, Reorder Level formulae</p></div></li>
+<li class="pause brk"><div class="time"><b>10:45</b><span>11:00</span></div><div class="pausebar"><span>Break</span><em>15 min</em></div></li>
+<li class="sess"><div class="time"><b>11:00</b><span>12:30</span></div><div class="sesscard c3"><div class="sesstop"><h4>Practical: Calculating Min/Max Stock Levels</h4><em>1 h 30 min</em></div><p>Groups compute Min/Max, Reorder Level and Months of Stock using sample facility consumption data for RDTs and ACTs</p></div></li>
+<li class="pause lunch"><div class="time"><b>12:30</b><span>13:30</span></div><div class="pausebar"><span>Lunch</span><em>1 h</em></div></li>
+<li class="sess"><div class="time"><b>13:30</b><span>14:30</span></div><div class="sesscard c3"><div class="sesstop"><h4>Stockout Risk and Replenishment Triggers</h4><em>1 h</em></div><p>Discussion: setting reorder trigger points; emergency/buffer stock; lead-time variability</p></div></li>
+<li class="sess"><div class="time"><b>14:30</b><span>15:30</span></div><div class="sesscard c3"><div class="sesstop"><h4>Group Exercise: Stock Status Dashboard (Manual)</h4><em>1 h</em></div><p>Groups build a simple stock status table flagging facilities below minimum stock</p></div></li>
+<li class="sess"><div class="time"><b>15:30</b><span>16:00</span></div><div class="sesscard c3"><div class="sesstop"><h4>Plenary Discussion and Wrap-up</h4><em>30 min</em></div><p>Key takeaways; Day 4 preview</p></div></li>
+</ol></div><div class="panel" role="tabpanel" id="day4" aria-labelledby="tab-day4" hidden><h2 class="printhead">Day 4</h2><div class="dayhead c4"><div class="daynum">Day 4</div><div><h2>Integrating Commodity and Stock Data into eIDSR</h2><p class="meta">08:30 to 16:00 &nbsp;&middot;&nbsp; 7 sessions</p></div></div>
+<section class="card reg c4"><h3>Registration</h3><p class="regnote">Sign in for the day. Your details go straight to the workshop register.</p><form class="regform" data-day="Day 4" novalidate><div class="regrow"><label>Name<input type="text" name="name" autocomplete="name" required></label><label>Telephone<input type="tel" name="phone" inputmode="numeric" maxlength="9" placeholder="9 digits, e.g. 076123456" required></label><label>Email<input type="email" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required></label><label>Day<select name="day" class="dayfix" disabled aria-readonly="true" title="Set by the day you are on"><option value="Day 1">Day 1</option><option value="Day 2">Day 2</option><option value="Day 3">Day 3</option><option value="Day 4" selected>Day 4</option><option value="Day 5">Day 5</option></select></label><label>Organisation<select name="organisation" required><option value="">Select organisation</option><option>NPHA</option><option>DPC</option><option>NMCP</option><option>DPS</option><option>NMSA</option><option>HEAL SL</option><option>CHAI</option><option>ICF-SL</option><option>EPIC</option><option>PMI Evolve</option></select></label></div><div class="regfoot"><button type="submit" class="signin">Sign in</button><span class="regmsg" role="status" aria-live="polite"></span></div></form></section>
+<section class="card objectives"><h3>Day objectives</h3><ul class="ticks"><li>Map testing, treatment and stock indicators to eIDSR data fields.</li><li>Configure/customize eIDSR dashboards for RDT and ACT tracking.</li><li>Set up automated or semi-automated low-stock alerts within eIDSR.</li><li>Practice data entry, validation, and report generation in eIDSR.</li></ul></section>
+<ol class="timeline">
+<li class="sess"><div class="time"><b>08:30</b><span>09:00</span></div><div class="sesscard c4"><div class="sesstop"><h4>Recap of Day 3</h4><em>30 min</em></div><p>Sign-in/Recap/Discussions</p></div></li>
+<li class="sess"><div class="time"><b>09:00</b><span>10:00</span></div><div class="sesscard c4"><div class="sesstop"><h4>Mapping Indicators to eIDSR Fields</h4><em>1 h</em></div><p>Technical session: aligning fever/RDT/confirmed-case/ACT/stock indicators with eIDSR data elements</p></div></li>
+<li class="sess"><div class="time"><b>10:00</b><span>10:45</span></div><div class="sesscard c4"><div class="sesstop"><h4>Configuring Dashboards and Visualizations</h4><em>45 min</em></div><p>Demo: building/adapting dashboards for testing rate, positivity rate, ACT utilization and stock status</p></div></li>
+<li class="pause brk"><div class="time"><b>10:45</b><span>11:00</span></div><div class="pausebar"><span>Break</span><em>15 min</em></div></li>
+<li class="sess"><div class="time"><b>11:00</b><span>12:30</span></div><div class="sesscard c4"><div class="sesstop"><h4>Hands-on: Data Entry and Validation</h4><em>1 h 30 min</em></div><p>Participants enter sample facility data into eIDSR (or demo environment); apply validation rules</p></div></li>
+<li class="pause lunch"><div class="time"><b>12:30</b><span>13:30</span></div><div class="pausebar"><span>Lunch</span><em>1 h</em></div></li>
+<li class="sess"><div class="time"><b>13:30</b><span>14:30</span></div><div class="sesscard c4"><div class="sesstop"><h4>Setting Up Stock Alerts in eIDSR</h4><em>1 h</em></div><p>Technical session: configuring min/max thresholds so eIDSR flags facilities approaching stockout, triggering replenishment workflow</p></div></li>
+<li class="sess"><div class="time"><b>14:30</b><span>15:30</span></div><div class="sesscard c4"><div class="sesstop"><h4>Practical: Generating and Interpreting Reports</h4><em>1 h</em></div><p>Participants generate facility/district reports and interpret stock and case-testing alerts</p></div></li>
+<li class="sess"><div class="time"><b>15:30</b><span>16:00</span></div><div class="sesscard c4"><div class="sesstop"><h4>Troubleshooting and Wrap-up</h4><em>30 min</em></div><p>Common entry errors, connectivity/offline data capture tips; Day 5 preview</p></div></li>
+</ol></div><div class="panel" role="tabpanel" id="day5" aria-labelledby="tab-day5" hidden><h2 class="printhead">Day 5</h2><div class="dayhead c5"><div class="daynum">Day 5</div><div><h2>Setting Malaria Epidemic Thresholds and Action Planning</h2><p class="meta">08:30 to 16:45 &nbsp;&middot;&nbsp; 9 sessions</p></div></div>
+<section class="card reg c5"><h3>Registration</h3><p class="regnote">Sign in for the day. Your details go straight to the workshop register.</p><form class="regform" data-day="Day 5" novalidate><div class="regrow"><label>Name<input type="text" name="name" autocomplete="name" required></label><label>Telephone<input type="tel" name="phone" inputmode="numeric" maxlength="9" placeholder="9 digits, e.g. 076123456" required></label><label>Email<input type="email" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required></label><label>Day<select name="day" class="dayfix" disabled aria-readonly="true" title="Set by the day you are on"><option value="Day 1">Day 1</option><option value="Day 2">Day 2</option><option value="Day 3">Day 3</option><option value="Day 4">Day 4</option><option value="Day 5" selected>Day 5</option></select></label><label>Organisation<select name="organisation" required><option value="">Select organisation</option><option>NPHA</option><option>DPC</option><option>NMCP</option><option>DPS</option><option>NMSA</option><option>HEAL SL</option><option>CHAI</option><option>ICF-SL</option><option>EPIC</option><option>PMI Evolve</option></select></label></div><div class="regfoot"><button type="submit" class="signin">Sign in</button><span class="regmsg" role="status" aria-live="polite"></span></div></form></section>
+<section class="card objectives"><h3>Day objectives</h3><ul class="ticks"><li>Understand core epidemiological concepts: endemic channel, alert threshold, epidemic/action threshold.</li><li>Apply recognized methods to set thresholds from historical facility/district data.</li><li>Integrate threshold-based early warning alerts into eIDSR.</li><li>Draft facility/district action plans and SOPs for threshold and stock alerts.</li></ul></section>
+<ol class="timeline">
+<li class="sess"><div class="time"><b>08:30</b><span>09:00</span></div><div class="sesscard c5"><div class="sesstop"><h4>Recap of Day 4</h4><em>30 min</em></div><p>Sign-in/Recap/Discussions</p></div></li>
+<li class="sess"><div class="time"><b>09:00</b><span>10:00</span></div><div class="sesscard c5"><div class="sesstop"><h4>Concepts in Epidemic Threshold Setting</h4><em>1 h</em></div><span class="leadchip">NPHA/NMCP</span><p>Presentation: endemic channel, alert threshold, epidemic/action threshold; role in early warning</p></div></li>
+<li class="sess"><div class="time"><b>10:00</b><span>11:00</span></div><div class="sesscard c5"><div class="sesstop"><h4>Threshold-Setting Methods</h4><em>1 h</em></div><p>Presentation and worked examples: mean + 2SD, C-SUM/cumulative sum method, WHO recommended approaches for malaria</p></div></li>
+<li class="pause brk"><div class="time"><b>11:00</b><span>11:15</span></div><div class="pausebar"><span>Break</span><em>15 min</em></div></li>
+<li class="sess"><div class="time"><b>11:15</b><span>12:30</span></div><div class="sesscard c5"><div class="sesstop"><h4>Practical: Plotting Historical Data and Setting Thresholds</h4><em>1 h 15 min</em></div><p>Groups use 3 to 5 years of facility/district case data to plot an endemic channel and set alert/epidemic thresholds</p></div></li>
+<li class="pause lunch"><div class="time"><b>12:30</b><span>13:30</span></div><div class="pausebar"><span>Lunch</span><em>1 h</em></div></li>
+<li class="sess"><div class="time"><b>13:30</b><span>14:15</span></div><div class="sesscard c5"><div class="sesstop"><h4>Configuring Threshold Alerts in eIDSR</h4><em>45 min</em></div><p>Technical session: entering threshold values into eIDSR so case counts above threshold trigger an automatic alert</p></div></li>
+<li class="sess"><div class="time"><b>14:15</b><span>15:00</span></div><div class="sesscard c5"><div class="sesstop"><h4>Simulation Exercise: Detecting a Signal</h4><em>45 min</em></div><p>Groups run a simulated weekly case-count scenario and decide when the alert/epidemic threshold is crossed</p></div></li>
+<li class="sess"><div class="time"><b>15:00</b><span>15:45</span></div><div class="sesscard c5"><div class="sesstop"><h4>Developing SOPs and Action Plans</h4><em>45 min</em></div><p>Groups draft response SOPs for (a) stock alerts and (b) epidemic threshold breaches, plus a facility/district roll-out plan</p></div></li>
+<li class="sess"><div class="time"><b>15:45</b><span>16:15</span></div><div class="sesscard c5"><div class="sesstop"><h4>Presentation of Action Plans</h4><em>30 min</em></div><p>Each group presents; facilitator and peer feedback</p></div></li>
+<li class="sess"><div class="time"><b>16:15</b><span>16:45</span></div><div class="sesscard c5"><div class="sesstop"><h4>Workshop Evaluation and Closing</h4><em>30 min</em></div><p>Pre/post knowledge check, evaluation forms, certificates, closing remarks</p></div></li>
+</ol></div><div class="panel" role="tabpanel" id="outputs" aria-labelledby="tab-outputs" hidden><h2 class="printhead">Outputs and logistics</h2><section class="card"><h2>Expected outputs of the workshop</h2><ol class="numlist"><li>A shared set of aligned indicators linking fever testing, confirmed cases, RDT/ACT consumption and stock status.</li><li>Facility-level Minimum/Maximum stock levels and Reorder Levels computed for RDTs and ACTs.</li><li>eIDSR configured (or a documented configuration plan) with stock alert triggers and malaria epidemic thresholds.</li><li>Draft SOPs for responding to low-stock alerts and to epidemic threshold breaches.</li><li>Facility/district action plans with clear roles, responsibilities and timelines.</li></ol></section><section class="card"><h2>Logistics notes</h2><ul class="ticks"><li>Participants should bring at least 10 years of facility fever-case, RDT, confirmed-case and ACT consumption data (paper or electronic) for practical sessions on Days 2 to 5.</li><li>A laptop/tablet with eIDSR platform access (or demo credentials) is required for Day 4 and Day 5 practical sessions.</li><li>Daily sessions run 08:30 to 16:00/16:45 with a mid-morning break, lunch, and a mid-afternoon break as needed.</li></ul></section></div></main>
+<script>
+/* ====================================================================
+   REGISTRATION BACKEND
+   Paste the Apps Script web app address below, the one ending in /exec.
+   ==================================================================== */
+var API_URL = "";
+var QKEY = "eidsr-workshop-reg-queue";
+
+(function(){
+  function queue(){ try { return JSON.parse(localStorage.getItem(QKEY)) || []; } catch(e){ return []; } }
+  function saveQueue(q){ try { localStorage.setItem(QKEY, JSON.stringify(q)); } catch(e){} }
+  function post(rec){
+    return fetch(API_URL, { method:"POST", headers:{ "Content-Type":"text/plain;charset=utf-8" },
+      body: JSON.stringify(rec) }).then(function(r){ return r.json(); });
+  }
+  /* Sign ins that could not reach the sheet are kept on this device and sent the
+     next time the page is open with a connection. */
+  function flush(){
+    var q = queue(); if (!q.length || !API_URL) return;
+    post({ action:"batch", items:q }).then(function(res){
+      if (res && res.ok){ saveQueue([]); }
+    }).catch(function(){});
+  }
+
+  document.querySelectorAll(".regform").forEach(function(f){
+    var phone = f.querySelector('[name="phone"]');
+    phone.addEventListener("input", function(){
+      phone.value = phone.value.replace(/\D/g, "").slice(0, 9);
+      phone.classList.remove("bad");
+    });
+    f.querySelectorAll("input,select").forEach(function(el){
+      el.addEventListener("change", function(){ el.classList.remove("bad"); });
+    });
+
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var msg = f.querySelector(".regmsg"), btn = f.querySelector(".signin");
+      var name = f.name.value.trim().replace(/\s+/g, " ");
+      var tel  = f.phone.value.trim();
+      var day  = f.getAttribute("data-day");
+      var org  = f.organisation.value;
+      var mail = f.email.value.trim().toLowerCase();
+      var bad = [];
+      f.querySelectorAll(".bad").forEach(function(x){ x.classList.remove("bad"); });
+      if (!name){ bad.push("name"); f.name.classList.add("bad"); }
+      if (!/^\d{9}$/.test(tel)){ bad.push("a 9 digit telephone number"); f.phone.classList.add("bad"); }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)){ bad.push("a valid email address"); f.email.classList.add("bad"); }
+      if (!day){ bad.push("the day"); f.day.classList.add("bad"); }
+      if (!org){ bad.push("your organisation"); f.organisation.classList.add("bad"); }
+      if (bad.length){ msg.className = "regmsg err"; msg.textContent = "Please enter " + bad.join(", ") + "."; return; }
+
+      var rec = { action:"register", name:name, phone:tel, email:mail, day:day, organisation:org,
+                  submitted_at: new Date().toISOString() };
+
+      if (!API_URL){
+        var q0 = queue(); q0.push(rec); saveQueue(q0);
+        msg.className = "regmsg held";
+        msg.textContent = "Saved on this device. It will be sent once the register sheet is linked.";
+        return;
+      }
+
+      btn.disabled = true; msg.className = "regmsg wait"; msg.textContent = "Signing in...";
+      post(rec).then(function(res){
+        btn.disabled = false;
+        if (res && res.ok && res.duplicate){
+          msg.className = "regmsg held";
+          msg.textContent = name + " is already signed in for " + day + ".";
+        } else if (res && res.ok){
+          msg.className = "regmsg ok";
+          msg.textContent = "Signed in for " + day + ". Thank you, " + name + "." +
+            (res.emailed === false ? " The confirmation email could not be sent, but your sign in is recorded."
+                                   : " A confirmation has been sent to " + mail + ".");
+          f.name.value = ""; f.phone.value = ""; f.email.value = "";
+        } else {
+          throw new Error((res && res.error) || "not saved");
+        }
+        flush();
+      }).catch(function(){
+        btn.disabled = false;
+        var q = queue(); q.push(rec); saveQueue(q);
+        msg.className = "regmsg held";
+        msg.textContent = "No connection. Saved on this device and it will be sent automatically.";
+        f.name.value = ""; f.phone.value = ""; f.email.value = "";
+      });
+    });
+  });
+
+  flush();
+  window.addEventListener("online", flush);
+})();
+
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function open(id, focus){
+    tabs.forEach(function(t){
+      var on = t.getAttribute('aria-controls') === id;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      if (on){ if (focus) t.focus(); t.scrollIntoView({block:'nearest', inline:'nearest'}); }
+    });
+    try { history.replaceState(null, '', '#' + id); } catch(e){}
+    var nav = document.querySelector('nav.tabs');
+    if (window.scrollY > nav.offsetTop) window.scrollTo(0, nav.offsetTop);
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ open(t.getAttribute('aria-controls')); });
+    t.addEventListener('keydown', function(e){
+      var j = null;
+      if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+      if (e.key === 'ArrowLeft')  j = (i - 1 + tabs.length) % tabs.length;
+      if (e.key === 'Home') j = 0;
+      if (e.key === 'End')  j = tabs.length - 1;
+      if (j !== null){ e.preventDefault(); open(tabs[j].getAttribute('aria-controls'), true); }
+    });
+  });
+  document.querySelectorAll('.jump').forEach(function(b){
+    b.addEventListener('click', function(){ open(b.getAttribute('data-go'), true); });
+  });
+  var h = (location.hash || '').slice(1);
+  if (h && document.getElementById(h) && document.getElementById(h).classList.contains('panel')) open(h);
+})();
+</script>
+</body>
+</html>
